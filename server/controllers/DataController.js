@@ -12,10 +12,12 @@ module.exports = {
         try {
             const data = await fs.readFileSync(jsonPath, 'utf8'); 
             const obj = JSON.parse(data);
-                res.send(obj[req.params.id]);
+               if(data.hasOwnProperty(req.params.id)) {
+                    res.send(obj[req.params.id]);
+               }; 
             } catch (err) {
                 res.status(500).send({
-                    error: "Could not find item"
+                    error: "Could not fetch data"
             })
         }
     }
