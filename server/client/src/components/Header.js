@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -6,20 +7,13 @@ class Header extends Component {
     return (
           <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-              <a className="navbar-brand" href="#">React Webshop</a>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
+            <Link to={'/'}>
+              <a className="navbar-brand" href="#">React-Redux-Node Webshop</a>
+            </Link>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item active">
-                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Features</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">Pricing</a>
+                    <a className="nav-link" href="/">Shop <span className="sr-only">(current)</span></a>
                   </li>
                   <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,9 +28,13 @@ class Header extends Component {
                   </ul>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a className="nav-link" href="#">My cart ( {this.props.items} ) </a>
-                      <i className="fa fa-shopping-cart"></i>
+                    <i className="fa fa-shopping-cart"></i>
                     </li>
+                  <Link to={'/Cart'}>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">My cart ( {this.props.items} ) </a>
+                    </li>
+                  </Link>
                   </ul>
               </div>
             </nav>
