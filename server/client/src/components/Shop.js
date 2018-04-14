@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import * as _ from 'lodash';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getData } from '../actions';
+import { getData, addToCart } from '../actions';
+import { ProductItem } from './ProductItem';
 
 
 class Shop extends Component {
@@ -26,27 +27,35 @@ class Shop extends Component {
         this.setState({index: this.state.index + 1});
     };
 
+    addToCart(product, quantity, price) {
+        const cart_item = [{
+            product,
+            quantity,
+            price
+        }];
+
+        console.log("recieved addtoCart:", cart_item);
+        this.props.addToCart({ cart_item });
+    };
  
     render() {
-      
-        
-        console.log(typeof items);
-        console.log(this.props.data);
-        console.log(typeof this.props.data);
         return (
             <div>
-                <Link to={'/Cart'}>My Cart {this.props.cart.items}</Link>
-                <div>
-                    <ul>
+                <Link to={'/Cart'}>My Cart</Link>
+                {/* <div>
+                    <ul> */}
                     {/* {this.state.recipes.map((recipe, index) => {
                         return (
                             <li key={index}>{recipe}</li>
                             )
                         }) */}
-                    }
-                    
-                    </ul>
-                </div>
+                     {/* </ul>
+                </div> */}
+
+                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
+                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
+                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
+
                 <button onClick={this.getMoreProducts.bind(this)}>Show more {this.state.index}</button>
             </div>
         )
@@ -55,12 +64,11 @@ class Shop extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.data,
-        cart: state.cart
+        data: state.data
     }
 };
 
 
 
-export default connect(mapStateToProps, { getData })(Shop);
+export default connect(mapStateToProps, { getData, addToCart })(Shop);
 

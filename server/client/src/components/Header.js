@@ -45,7 +45,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {  
-    items: state.cart.items
+    items: state.cart.items_count
   }  
   
 };
