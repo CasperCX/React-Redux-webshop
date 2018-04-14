@@ -9,7 +9,7 @@ const ProductItem = ({ onClick }) => {
                 <p className="margin">Consectetur ut non dolor sint eu eiusmod adipisicing eu exercitation nostrud irure ad... (more)</p> 
                 <button className="margin" onClick={onClick}>Add to cart</button>
                 <button className="margin">+</button>
-                    <span className="margin">0</span>
+                    <span className="margin">1</span>
                 <button className="margin">-</button>
                 <span className="margin">$19,99</span>
             </div>

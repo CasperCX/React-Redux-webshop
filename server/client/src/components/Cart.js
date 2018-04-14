@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Cart extends Component {
@@ -7,7 +8,7 @@ class Cart extends Component {
         console.log("cart contains", this.props.cart);
         return (
             <div>
-                <div id="basket">Basket
+                <div id="basket">
                     <ul>
                         { this.props.cart.map((product, i) => {
                             return (
@@ -21,6 +22,9 @@ class Cart extends Component {
                 <div id="checkout">
                     <div id="total"></div>
                 </div> 
+                <Link to={'/'}>
+                    <button className="btn btn-primary" id="confirm-purchase">Confirm purchase</button>
+                </Link>
             </div>
         )
     }

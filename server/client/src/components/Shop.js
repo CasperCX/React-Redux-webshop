@@ -52,6 +52,7 @@ class Shop extends Component {
                      {/* </ul>
                 </div> */}
 
+                {/* pass in current object to productitem with {...obj} */}
                 <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
                 <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
                 <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
