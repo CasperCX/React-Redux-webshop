@@ -35,14 +35,14 @@ class Shop extends Component {
         console.log(typeof this.props.data);
         return (
             <div>
-                <Link to={'/Cart'}>My Cart</Link>
+                <Link to={'/Cart'}>My Cart {this.props.cart.items}</Link>
                 <div>
                     <ul>
-                    {this.state.recipes.map((recipe, index) => {
+                    {/* {this.state.recipes.map((recipe, index) => {
                         return (
                             <li key={index}>{recipe}</li>
                             )
-                        })
+                        }) */}
                     }
                     
                     </ul>
@@ -55,7 +55,8 @@ class Shop extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.data
+        data: state.data,
+        cart: state.cart
     }
 };
 
