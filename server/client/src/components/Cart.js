@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class Cart extends Component {
     state = {
-        cart_contents: null
+        cart_contents: []
     };
 
     componentWillMount() {
@@ -23,7 +23,7 @@ class Cart extends Component {
                     <div id="basket">
                         <div>
                             { this.state.cart_contents.map((product, i) => 
-                                <li className="cart-item" key={i}>{product.price} </li>
+                                <li className="cart-item" key={i}>{product.name} - {product.price}</li>
                                 )
                             }
                         </div>   

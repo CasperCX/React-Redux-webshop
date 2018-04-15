@@ -10,11 +10,6 @@ class Shop extends Component {
         super()
         this.state = {
             index: 10
-            // recipes: [
-            //     {recipeName: 'Pizza', ingredients: ['Dough', 'Cheese', 'Sauce']},
-            //       {recipeName: 'Chicken', ingredients: ['Meat', 'Seasoning', 'other']},
-            //         {recipeName: 'Other', ingredients: ['other1', 'other2', 'other3']}
-            //   ]};
         }
     }
     
@@ -24,12 +19,12 @@ class Shop extends Component {
     };
 
     getMoreProducts() {
-        this.setState({index: this.state.index + 1});
+        this.setState({index: this.state.index + 10});
     };
 
-    addToCart(product, quantity, price) {
+    addToCart(name, quantity, price) {
         const cart_item = [{
-            product,
+            name,
             quantity,
             price
         }];
@@ -43,7 +38,7 @@ class Shop extends Component {
             <div>
                 <Link to={'/Cart'}>My Cart</Link>
                 <div>
-                    {this.props.data.map((product, i) => 
+                    {this.props.data.splice(1, this.state.index).map((product, i) => 
                     <ProductItem key={i} product={product} onClick={() => this.addToCart(product.name, 1, product.price )}/> )}
                 </div>   
 
@@ -53,7 +48,7 @@ class Shop extends Component {
                 {/* <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
                 <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/> */}
 
-                <button onClick={this.getMoreProducts.bind(this)}>Show more {this.state.index}</button>
+                <button className="padding" onClick={this.getMoreProducts.bind(this)}>Show 10 more</button>
             </div>
         )
     }

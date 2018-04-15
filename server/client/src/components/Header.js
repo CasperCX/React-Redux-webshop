@@ -12,13 +12,15 @@ class Header extends Component {
             </Link>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav mr-auto">
-                  <li className="nav-item active">
-                    <a className="nav-link" href="/">Shop <span className="sr-only">(current)</span></a>
-                  </li>
+                  <Link to={'/'}>
+                    <li className="nav-item active">
+                      <a className="nav-link" href="/">Shop <span className="sr-only">(current)</span></a>
+                    </li>
+                  </Link>
                   </ul>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                    <i className="fa fa-shopping-cart"></i>
+                      <i className="fa fa-shopping-cart"></i>
                     </li>
                   <Link to={'/Cart'}>
                     <li className="nav-item">

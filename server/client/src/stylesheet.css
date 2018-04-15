@@ -1,3 +1,7 @@
+body {
+    height: 600px;
+}
+
 .product-item {
     border-radius: 5px;
     margin-top: 25px;
@@ -69,3 +73,8 @@
     color: black;
 }
 
+.shop-container {
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+};

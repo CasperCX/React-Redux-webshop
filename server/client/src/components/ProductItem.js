@@ -21,7 +21,7 @@ class ProductItem extends Component {
             <img className="product-img" src={this.props.product.picture} alt="product" />
             <div className="product-discription">
                 <h4 className="title">{this.props.product.name}</h4>
-                <p className="padding">{this.props.product.about.slice(1,150)} ...more</p>
+                <p className="padding">{this.props.product.about.slice(1,100)} ...more</p>
                 <button className="padding" onClick={this.props.onClick}>Add to cart</button>
                 <button className="margin" onClick={() => this.setState({quantity: this.state.quantity += 1})}>+</button>
                     <span className="margin">{this.state.quantity}</span>

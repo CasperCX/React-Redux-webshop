@@ -5,10 +5,8 @@ const INIT = { items_count: 0,
 export default function(state = INIT, action ) {
     switch (action.type) {
         case ADD_CART:
-           return {...state, items_: [...state.items_, action.payload] };
+           return {...state, items_: [...state.items_ , ...action.payload] };
         default:
             return state;
     } 
-
-  
 };
