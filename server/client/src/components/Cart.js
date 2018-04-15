@@ -10,13 +10,8 @@ class Cart extends Component {
             <div>
                 <div id="basket">
                     <ul>
-                        { this.props.cart.map((product, i) => {
-                            return (
-                                <li key={i}>
-                                    <h2>{product}</h2>
-                                </li>
-                            )
-                        })}
+                        { this.props.cart.map((product, i) => 
+                             <li key={i}><h2>{product}</h2></li> )}
                     </ul>
                 </div>
                 <div id="checkout">
