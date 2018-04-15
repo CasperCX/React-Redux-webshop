@@ -1,23 +1,39 @@
 import React, { Component } from 'react';
 
-const ProductItem = ({ product, onClick }) => {
+class ProductItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            quantity: 1
+        };
+    }
+
+    quantityCheck() {
+        if (this.state.quantity > 1) {
+            this.setState({quantity: this.state.quantity -= 1})
+        }
+    }
+
+    render() {
         return (
         <div className="product-item">
-            <img className="product-img" src={product.picture} alt="product image" />
+            <img className="product-img" src={this.props.product.picture} alt="product" />
             <div className="product-discription">
-                <h4 className="margin">{product.name}</h4>
-                <p className="padding">{product.about.slice(1, 80)} ...more</p>
-                <button className="margin" onClick={onClick}>Add to cart</button>
-                <button className="margin">+</button>
-                    <span className="margin">1</span>
-                <button className="margin">-</button>
-                    <h5 className="padding">{product.price}</h5>
+                <h4 className="title">{this.props.product.name}</h4>
+                <p className="padding">{this.props.product.about.slice(1,150)} ...more</p>
+                <button className="padding" onClick={this.props.onClick}>Add to cart</button>
+                <button className="margin" onClick={() => this.setState({quantity: this.state.quantity += 1})}>+</button>
+                    <span className="margin">{this.state.quantity}</span>
+                <button className="margin" onClick={() => this.quantityCheck()}>-</button>
+                    <h5 className="padding">{this.props.product.price}</h5>
             </div>
         </div>
         )
+    }
 };
 
-export { ProductItem };
+export default ProductItem;
 
 
 

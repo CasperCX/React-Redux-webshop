@@ -15,11 +15,16 @@
 }
 
 .margin {
-    padding: 5%;
+    margin: 2%;
 }
 
 .padding {
-    padding: 10px;
+    margin: 2%;
+}
+
+.title {
+    margin: 5%;
+    color: blue;
 }
 
 #basket {
@@ -58,5 +63,9 @@
     float: left;
     width: 200px;
     height: 50px;
+}
+
+.cart-item {
+    color: black;
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getData, addToCart } from '../actions';
-import { ProductItem } from './ProductItem';
+import ProductItem from './ProductItem';
 
 
 class Shop extends Component {
