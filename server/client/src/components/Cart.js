@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { removeFromCart } from '../actions';
 
 class Cart extends Component {
     state = {
@@ -13,6 +14,10 @@ class Cart extends Component {
         })
     };
 
+    removeFromCart(index) {
+        this.props.removeFromCart(index);
+    };
+
 
     render() {
         console.log("cart contains", this.state.cart_contents);
@@ -23,7 +28,10 @@ class Cart extends Component {
                     <div id="basket">
                         <div>
                             { this.state.cart_contents.map((product, i) => 
-                                <li className="cart-item" key={i}>{product.name} - {product.price}</li>
+                                (
+                                    <li className="cart-item" key={i}>{product.name} - {product.price} &emsp; {product.quantity}x &emsp; &emsp; 
+                                        <span>(remove) <button onClick={() => removeFromCart(i)}>x</button></span></li>
+                                    )
                                 )
                             }
                         </div>   
@@ -56,5 +64,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, { removeFromCart })(Cart);
 
