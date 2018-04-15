@@ -43,14 +43,15 @@ class Shop extends Component {
             <div>
                 <Link to={'/Cart'}>My Cart</Link>
                 <div>
-                    {this.props.data.map((item, i) => 
-                    <h4 key={i}>{item.name}</h4> )}
+                    {this.props.data.map((product, i) => 
+                    <ProductItem key={i} product={product} onClick={() => this.addToCart(product.name, 1, product.price )}/> )}
                 </div>   
 
+                {/* <h4 key={i}>{item.name}</h4> )} */}
                 {/* pass in current object to productitem with {...obj} */}
-                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
-                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
-                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
+                
+                {/* <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/>
+                <ProductItem onClick={() => this.addToCart("Product 1", 1, "19.99")}/> */}
 
                 <button onClick={this.getMoreProducts.bind(this)}>Show more {this.state.index}</button>
             </div>

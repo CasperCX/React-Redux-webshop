@@ -1,21 +1,25 @@
 .product-item {
     border-radius: 5px;
-    margin-top: 5%;
+    margin-top: 25px;
     margin-left: 2%;
-    width: 15%;
-    height: 350px;
+    width: 12%;
+    height: 450px;
     border: 1px solid black;
     float: left;
 }
 
 .product-img {
     margin: 5%;
-    background-color: aqua;
     height: 150px;
+    width: 90%;
 }
 
 .margin {
-    margin-left: 2%;
+    padding: 5%;
+}
+
+.padding {
+    padding: 10px;
 }
 
 #basket {
