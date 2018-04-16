@@ -1,7 +1,7 @@
 # React-webshop2
 
 instructions:
-npm install in /server
-npm install in /client
+1. npm install in /server
+2. npm install in /client
 
-npm run dev in /server to start app on localhost:3000
+3. npm run dev in /server to start app on localhost:3000
