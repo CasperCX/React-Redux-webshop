@@ -1,4 +1,4 @@
-# React-webshop2
+# React-webshop
 A simple webshop based on React / Redux
 
 instructions:
