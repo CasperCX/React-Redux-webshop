@@ -1,5 +1,5 @@
 # React-webshop
-A simple webshop based on React / Redux
+A simple webshop concept with React and Redux
 
 instructions:
 1. npm install in /server
