@@ -24,7 +24,7 @@ class Header extends Component {
                     </li>
                   <Link to={'/Cart'}>
                     <li className="nav-item">
-                      <a className="nav-link" href="#">My cart ( {this.props.items} ) </a>
+                      <a className="nav-link" href="#">My cart ( {this.props.items.length} ) </a>
                     </li>
                   </Link>
                   </ul>
@@ -37,7 +37,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {  
-    items: state.cart.items_count
+    items: state.cart.items
   }  
   
 };

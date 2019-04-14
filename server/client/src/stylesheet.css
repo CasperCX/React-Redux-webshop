@@ -2,20 +2,36 @@ body {
     height: 600px;
 }
 
+.store-wrapper {
+    height: 1200px;
+    width: 100%;
+}
+
 .product-item {
     border-radius: 5px;
     margin-top: 25px;
     margin-left: 2%;
-    width: 12%;
+    width: 20%;
     height: 450px;
-    border: 1px solid black;
+    border: 1px solid rgb(121, 121, 121);
     float: left;
+}
+
+.product-description {
+    margin: 10px;
+    margin-bottom: 50px;
+    font-size: 12px;
 }
 
 .product-img {
     margin: 5%;
     height: 150px;
     width: 90%;
+}
+
+.product-actions {
+    margin: 10px;
+    bottom: 0px;
 }
 
 .margin {
@@ -35,6 +51,7 @@ body {
     border-radius: 5px;
     margin-top: 5%;
     margin-left: 10%;
+    padding: 20px;
     width: 30%;
     height: 500px;
     border: solid 1px black;
@@ -71,6 +88,7 @@ body {
 
 .cart-item {
     color: black;
+    padding: 10px;
 }
 
 .shop-container {

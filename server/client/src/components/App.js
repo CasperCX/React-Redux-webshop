@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import Shop from './Shop';
-import Cart from './Cart';
+import Checkout from './Checkout';
 
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
             <div>
               <Header/>
               <Route exact path="/" component={Shop} />
-              <Route path="/cart" component={Cart} />
+              <Route path="/cart" component={Checkout} />
             </div>
           </BrowserRouter>
         </div>

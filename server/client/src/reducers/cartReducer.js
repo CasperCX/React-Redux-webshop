@@ -1,14 +1,12 @@
 import { ADD_CART, REMOVE } from '../actions/types';
-const INIT = { items_count: 0,
-                items_: [] };
+const INIT = { items: [], currency: '$' };
 
 export default function(state = INIT, action ) {
     switch (action.type) {
         case ADD_CART:
-           return {...state, items_: [...state.items_ , ...action.payload] };
+           return {...state, items: [...state.items , action.payload] };
         case REMOVE:
-            console.log("removing index:", action.payload);
-            return {...state, items_: state.items_.filter(item => item !== action.payload)}
+            return {...state, items: state.items.filter(item => item.name !== action.payload.name)}
         default:
             return state;
     } 
