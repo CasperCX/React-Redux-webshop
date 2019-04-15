@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { removeFromCart, confirmPurchase } from '../actions';
-import {getTotal} from './../lib/getTotal';
+import {getTotal, getCartTotalVat} from './../lib/getTotal';
 
 class Checkout extends Component {
    
@@ -30,7 +30,7 @@ class Checkout extends Component {
                             <h3>Total VAT {this.props.currency} {(getTotal(this.props.cart) / 100 * 21).toFixed(2)}</h3>
                         </div>
                         <div id="total" style={{textAlign: 'center'}}>
-                            <span>Total with VAT(21%)<h2>{this.props.currency}{getTotal(this.props.cart).toFixed(2)}</h2></span>
+                            <span>Total with VAT(21%)<h2>{this.props.currency}{getCartTotalVat(this.props.cart)}</h2></span>
                         </div>
                     </div> 
                     <Link to={'/'}>

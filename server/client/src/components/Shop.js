@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getData, removeFromCart } from '../actions';
 import ProductItem from './ProductItem';
-import {getTotal} from './../lib/getTotal';
+import {getCartTotalVat, getTotalProduct} from './../lib/getTotal';
 
 
 class Shop extends Component {
@@ -24,7 +24,6 @@ class Shop extends Component {
 
 
     render() {
-        console.log('cart', this.props.cart)
         return (
             <div className="store-wrapper">
                 <div style={{float: 'left', width: '75%'}}>
@@ -33,18 +32,22 @@ class Shop extends Component {
                         <ProductItem key={i} product={product} /> )}
                 </div>
                 <button className="padding" style={{float: 'left'}} onClick={this.getMoreProducts.bind(this)}>Show 8 more</button>
-                
             </div>
       
             <div style={{float: 'left', width: '20%', border: '1px solid black', margin: '20px'}}>
                 <div style={{width: '100%', height: '600px', position: 'relative'}}>
-                    <div style={{height: '40px', width: '100%', backgroundColor: 'grey', textAlign: 'center'}}>Cart</div>
+                    <div style={{height: '40px', width: '100%', backgroundColor: 'rgb(230, 230, 230)', textAlign: 'center'}}>Cart</div>
                         <ul style={{listStyleType: 'none', padding: '0px'}}>
                             {this.props.cart.map((product, i) => {
                                 return (
                                     <li style={{padding: '10px'}}>
                                         {product.quantity}x {product.name}
-                                        <span style={{float: "right"}}><button className="btn-sm btn-danger" onClick={() => this.props.removeFromCart(product)}>x</button></span>
+                                        <span style={{float: "left", paddingRight: '20px'}}>
+                                            {this.props.currency}{getTotalProduct(product)}
+                                        </span>
+                                        <span style={{float: 'right', padding: '0px'}}>
+                                            <button className="btn-sm btn-danger" onClick={() => this.props.removeFromCart(product)}>x</button>
+                                        </span>
                                         <hr />
                                     </li>
                                 )
@@ -52,7 +55,7 @@ class Shop extends Component {
                         </ul>
                     <div style={{position: 'absolute', bottom: '0px', right: '0px', width: '100%'}}>
                             <div style={{float: 'left', margin: '10px'}}>
-                                <span>inc VAT: <h2>{this.props.currency}{getTotal(this.props.cart).toFixed(2)}</h2></span>
+                                <span>inc VAT: <h2>{this.props.currency}{getCartTotalVat(this.props.cart)}</h2></span>
                             </div>
                             <div style={{right: '0px', marginRight: '20px', float: 'right'}}>
                                 <Link to={'/Cart'}>

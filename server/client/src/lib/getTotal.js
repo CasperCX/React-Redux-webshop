@@ -6,3 +6,20 @@ export const getTotal = (cart) => {
 
     return total;
 }
+
+export const getProductTotal = (product) => {
+    const {price, quantity} = product;
+
+    return Number(price * quantity);
+}
+
+export const getTotalProduct = (product) => {
+    return (product.price * product.quantity).toFixed(2);
+}
+
+export const getCartTotalVat = (cart) => {
+    const total = getTotal(cart);
+    const vat = (total / 100 * 21);
+
+    return (total + vat).toFixed(2);
+}
