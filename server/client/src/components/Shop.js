@@ -34,7 +34,7 @@ class Shop extends Component {
                 <button className="padding" style={{float: 'left'}} onClick={this.getMoreProducts.bind(this)}>Show 8 more</button>
             </div>
       
-            <div style={{float: 'left', width: '20%', border: '1px solid black', margin: '20px'}}>
+            <div style={{float: 'right', width: '20%', border: '1px solid black', margin: '20px'}}>
                 <div style={{width: '100%', height: '600px', position: 'relative'}}>
                     <div style={{height: '40px', width: '100%', backgroundColor: 'rgb(230, 230, 230)', textAlign: 'center'}}>Cart</div>
                         <ul style={{listStyleType: 'none', padding: '0px'}}>

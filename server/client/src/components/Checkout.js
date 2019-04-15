@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as R from 'ramda';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { removeFromCart, confirmPurchase } from '../actions';
