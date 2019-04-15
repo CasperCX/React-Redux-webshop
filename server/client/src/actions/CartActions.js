@@ -1,4 +1,4 @@
-import { ADD_CART, REMOVE } from './types';
+import { ADD_CART, REMOVE, CONFIRM_PURCHASE } from './types';
 
 export const addToCart = ({ cart_item }) => {
     return {
@@ -13,3 +13,9 @@ export const removeFromCart = (cart_item) => {
         payload: cart_item
     }
 };
+
+export const confirmPurchase = () => {
+    return {
+        type: CONFIRM_PURCHASE
+    }
+}

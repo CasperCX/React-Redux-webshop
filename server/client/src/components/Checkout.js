@@ -2,26 +2,13 @@ import React, { Component } from 'react';
 import * as R from 'ramda';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../actions';
+import { removeFromCart, confirmPurchase } from '../actions';
+import {getTotal} from './../lib/getTotal';
 
 class Checkout extends Component {
    
-    removeFromCart(index) {
-        this.props.removeFromCart(index);
-    };
-
-    getTotal() {
-        let total = 0;
-        this.props.cart.forEach((product) => {
-            total += (Number(product.price) * product.quantity)
-        })
-
-        return `${this.props.currency} ${total}`;
-    }
-
 
     render() {
-        console.log(this.props.cart)
             return this.props.cart.length ?
                 (
                     <div>
@@ -31,7 +18,7 @@ class Checkout extends Component {
                                 (
                                     <li className="cart-item" key={i}>{product.name} - {product.currency} {product.price} &emsp; 
                                         {product.quantity} &emsp; &emsp; 
-                                        <span style={{float: "right"}}><button className="btn-sm btn-danger" onClick={() => this.removeFromCart(product)}>x</button></span>
+                                        <span style={{float: "right"}}><button className="btn-sm btn-danger" onClick={() => this.props.removeFromCart(product)}>x</button></span>
                                     </li>
                                     )
                                 )
@@ -39,12 +26,15 @@ class Checkout extends Component {
                         </ul>   
                     </div>
                     <div id="checkout">
-                        <div id="total">
-                            <span><h3>{this.getTotal()}</h3></span>
+                        <div style={{textAlign: 'center'}}>
+                            <h3>Total VAT {this.props.currency} {(getTotal(this.props.cart) / 100 * 21).toFixed(2)}</h3>
+                        </div>
+                        <div id="total" style={{textAlign: 'center'}}>
+                            <span>Total with VAT(21%)<h2>{this.props.currency}{getTotal(this.props.cart).toFixed(2)}</h2></span>
                         </div>
                     </div> 
                     <Link to={'/'}>
-                        <button className="btn btn-primary" id="confirm-purchase">Confirm purchase</button>
+                        <button className="btn btn-primary" id="confirm-purchase" onClick={() => this.props.confirmPurchase()}>Confirm purchase</button>
                     </Link>
                 </div>
                 ) : (
@@ -63,6 +53,7 @@ class Checkout extends Component {
             }
         };
 
+
 const mapStateToProps = state => {
     return {
         cart: state.cart.items,
@@ -70,5 +61,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { removeFromCart })(Checkout);
+export default connect(mapStateToProps, { removeFromCart, confirmPurchase })(Checkout);
 
